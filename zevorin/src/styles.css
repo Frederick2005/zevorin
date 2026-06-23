@@ -1,0 +1,142 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * ZEVORIN — strict monochrome design system.
+ * Only black, white and grays. No accent hues anywhere.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --radius: 0rem;
+
+  /* Pure white surface, pure black ink */
+  --background: oklch(1 0 0);                 /* #FFFFFF */
+  --foreground: oklch(0 0 0);                 /* #000000 */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0 0 0);
+
+  --primary: oklch(0 0 0);                    /* black */
+  --primary-foreground: oklch(1 0 0);         /* white */
+
+  --secondary: oklch(0.97 0 0);               /* #F5F5F5 */
+  --secondary-foreground: oklch(0 0 0);
+
+  --muted: oklch(0.97 0 0);                   /* #F5F5F5 */
+  --muted-foreground: oklch(0.45 0 0);        /* mid gray */
+
+  --accent: oklch(0.92 0 0);                  /* #E0E0E0 */
+  --accent-foreground: oklch(0 0 0);
+
+  --destructive: oklch(0.25 0 0);             /* very dark gray, no red */
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.92 0 0);                  /* #E0E0E0 */
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0 0 0);
+}
+
+.dark {
+  --background: oklch(0 0 0);                 /* #000000 */
+  --foreground: oklch(1 0 0);                 /* #FFFFFF */
+
+  --card: oklch(0.1 0 0);                     /* #1A1A1A */
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.1 0 0);
+  --popover-foreground: oklch(1 0 0);
+
+  --primary: oklch(1 0 0);                    /* white */
+  --primary-foreground: oklch(0 0 0);         /* black */
+
+  --secondary: oklch(0.15 0 0);               /* near black */
+  --secondary-foreground: oklch(1 0 0);
+
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+
+  --accent: oklch(0.22 0 0);                  /* #424242 */
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.85 0 0);
+  --destructive-foreground: oklch(0 0 0);
+
+  --border: oklch(0.22 0 0);                  /* #424242 */
+  --input: oklch(0.22 0 0);
+  --ring: oklch(1 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Editorial display utility */
+@utility text-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility hairline {
+  border-top: 1px solid var(--color-border);
+}
