@@ -77,7 +77,7 @@ function ProductDetail() {
             <img
               src={product.images[activeImg]}
               alt={product.name}
-              className="h-full w-full object-cover grayscale"
+              className="h-full w-full object-cover"
             />
           </div>
           {product.images.length > 1 && (
@@ -91,7 +91,7 @@ function ProductDetail() {
                     i === activeImg ? "border-foreground" : "border-border",
                   ].join(" ")}
                 >
-                  <img src={img} alt="" className="h-full w-full object-cover grayscale" />
+                  <img src={img} alt="" className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>

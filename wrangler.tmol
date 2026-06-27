@@ -1,0 +1,13 @@
+# wrangler.toml
+name = "zevorin"
+main = "src/worker.ts"
+compatibility_date = "2025-01-01"
+
+# Static assets – bucket points to your built folder
+[site]
+bucket = "./dist"
+
+# Environment variables (both VITE_* and others)
+[vars]
+VITE_SUPABASE_URL = "https://tsyfepkfortmlotggjup.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzeWZlcGtmb3J0bWxvdGdnanVwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE5Nzk3MjAsImV4cCI6MjA5NzU1NTcyMH0.PkTrnQCiskiH08c7cyWDQPIvzS7kovwgSQaO23lNdzs""

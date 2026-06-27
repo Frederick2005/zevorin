@@ -44,8 +44,8 @@ function Index() {
         <div className="mx-auto grid max-w-[1400px] gap-0 px-0 md:grid-cols-12">
           <div className="flex flex-col justify-between px-5 py-16 md:col-span-5 md:px-12 md:py-24">
             <div className="text-eyebrow">SS27 — Volume 01 · Kampala</div>
-            <h1 className="mt-2 text-4xl font-bold leading-[1.1] md:text-6xl">
-              Editorial monochrome clothing, designed and tailored in Kampala.
+            <h1 className="text-display mt-10 text-[14vw] font-black leading-[0.85] md:mt-16 md:text-[6.5rem]">
+              ZEVORIN 
             </h1>
             <div className="mt-10 max-w-sm text-sm text-muted-foreground md:mt-16">
               A monochrome study in negative space — clothing cut, sewn and
@@ -70,7 +70,7 @@ function Index() {
             <img
               src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=85"
               alt="Editorial monochrome look"
-              className="absolute inset-0 h-full w-full object-cover grayscale"
+              className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute bottom-4 right-4 text-[10px] tracking-widest text-background mix-blend-difference">
               LOOK 01 · BONE SILK
@@ -100,7 +100,7 @@ function Index() {
                 <img
                   src={p.images[0]}
                   alt={p.name}
-                  className="h-full w-full object-cover grayscale transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
               </div>

@@ -5,12 +5,10 @@ import { useCart } from "@/lib/cart-store";
 import { useTheme } from "@/lib/theme";
 import { supabase } from "@/integrations/supabase/client";
 
-const navLinks = [
+const baseLinks = [
   { to: "/", label: "Home" },
   { to: "/shop", label: "Shop" },
-  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-  { to: "/signup", label: "Sign up" },
 ];
 
 export function Header() {
@@ -18,9 +16,11 @@ export function Header() {
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isAuthed, setIsAuthed] = useState(false);
 
   useEffect(() => {
     const check = async (userId: string | undefined) => {
+      setIsAuthed(!!userId);
       if (!userId) {
         setIsAdmin(false);
         return;
@@ -39,6 +39,11 @@ export function Header() {
     );
     return () => sub.subscription.unsubscribe();
   }, []);
+
+  const navLinks = [
+    ...baseLinks,
+    ...(isAuthed ? [] : [{ to: "/signup", label: "Sign up" }]),
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">

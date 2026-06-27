@@ -35,7 +35,7 @@ function CartPage() {
                   className="grid grid-cols-[88px_1fr_auto] gap-4 border-b border-border py-6 md:grid-cols-[120px_1fr_auto_auto]"
                 >
                   <div className="aspect-square overflow-hidden bg-muted">
-                    {i.image && <img src={i.image} alt="" className="h-full w-full object-cover grayscale" />}
+                    {i.image && <img src={i.image} alt="" className="h-full w-full object-cover" />}
                   </div>
                   <div>
                     <div className="text-eyebrow text-muted-foreground">

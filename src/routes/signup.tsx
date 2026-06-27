@@ -118,7 +118,7 @@ function SignupPage() {
           <img
             src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80"
             alt="Zevorin editorial"
-            className="absolute inset-0 h-full w-full object-cover grayscale"
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/50 to-transparent" />
           <div className="relative z-10 flex h-full flex-col justify-between p-12 text-white">

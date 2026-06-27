@@ -154,7 +154,7 @@ function Checkout() {
               <li key={i.lineId} className="flex gap-3">
                 {i.image && (
                   <div className="h-16 w-16 shrink-0 overflow-hidden bg-muted">
-                    <img src={i.image} alt="" className="h-full w-full object-cover grayscale" />
+                    <img src={i.image} alt="" className="h-full w-full object-cover" />
                   </div>
                 )}
                 <div className="flex-1 text-xs">

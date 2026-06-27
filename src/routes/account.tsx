@@ -31,7 +31,6 @@ function Account() {
   const { order } = Route.useSearch();
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [form, setForm] = useState({ email: "", password: "" });
   const [orders, setOrders] = useState<Order[]>([]);
   const navigate = useNavigate();
@@ -65,20 +64,14 @@ function Account() {
   if (!user) {
     const submit = async (e: React.FormEvent) => {
       e.preventDefault();
-      const { data, error } =
-        mode === "signin"
-          ? await supabase.auth.signInWithPassword(form)
-          : await supabase.auth.signUp({
-              ...form,
-              options: { emailRedirectTo: window.location.origin + "/dashboard" },
-            });
+      const { data, error } = await supabase.auth.signInWithPassword(form);
       if (error) {
         toast.error(error.message);
         return;
       }
       const uid = data.user?.id;
       if (!uid) {
-        toast.success(mode === "signup" ? "Account created" : "Signed in");
+        toast.success("Signed in");
         return;
       }
       const { data: roles } = await supabase
@@ -86,7 +79,7 @@ function Account() {
         .select("role")
         .eq("user_id", uid);
       const isAdmin = (roles ?? []).some((r) => r.role === "admin");
-      toast.success(mode === "signup" ? "Welcome to Zevorin" : "Signed in");
+      toast.success("Signed in");
       navigate({ to: isAdmin ? "/dashboard" : "/" });
     };
 
@@ -97,28 +90,19 @@ function Account() {
       <Shell>
         <div className="mx-auto grid max-w-[1100px] gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
           <div>
-            <h1 className="text-display text-4xl font-bold md:text-6xl">Account</h1>
+            <h1 className="text-display text-4xl font-bold md:text-6xl">Sign in</h1>
             <p className="mt-6 max-w-sm text-sm text-muted-foreground">
-              Sign in to track orders and reserve tickets faster.
+              Sign in to track your orders and check out faster.
             </p>
           </div>
           <form onSubmit={submit} className="space-y-4 border border-border p-8">
-            <div className="flex border-b border-border">
-              <button type="button" onClick={() => setMode("signin")}
-                className={`flex-1 py-3 text-eyebrow ${mode === "signin" ? "border-b-2 border-foreground" : "text-muted-foreground"}`}>
-                Sign in
-              </button>
-              <button type="button" onClick={() => setMode("signup")}
-                className={`flex-1 py-3 text-eyebrow ${mode === "signup" ? "border-b-2 border-foreground" : "text-muted-foreground"}`}>
-                Create account
-              </button>
-            </div>
+            <div className="text-eyebrow border-b border-border pb-3">Sign in</div>
             <input type="email" placeholder="Email" className={input}
               value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
             <input type="password" placeholder="Password" className={input}
               value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
             <button className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85">
-              {mode === "signin" ? "Sign in" : "Create account"}
+              Sign in
             </button>
           </form>
         </div>
