@@ -7,8 +7,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — ZEVORIN" },
-      { name: "description", content: "Reach the Zevorin atelier." },
+      { title: "Contact — ZÉVORIN" },
+      { name: "description", content: "Reach the ZÉVORIN atelier." },
     ],
   }),
   component: Contact,
@@ -50,11 +50,11 @@ function Contact() {
             </div>
             <div>
               <div className="text-eyebrow mb-1">Email</div>
-              <a href="mailto:atelier@zevorin.ug" className="hover:underline">atelier@zevorin.ug</a>
+              <a href="mailto:atelier@zévorin.ug" className="hover:underline">atelier@zévorin.ug</a>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Press</div>
-              <a href="mailto:press@zevorin.ug" className="hover:underline">press@zevorin.ug</a>
+              <a href="mailto:press@zévorin.ug" className="hover:underline">press@zévorin.ug</a>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Phone</div>

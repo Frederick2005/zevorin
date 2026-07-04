@@ -8,7 +8,7 @@ import type { Product } from "@/lib/queries";
 
 export const Route = createFileRoute("/dashboard")({
   ssr: false,
-  head: () => ({ meta: [{ title: "Dashboard — ZEVORIN" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — ZÉVORIN" }] }),
   component: Dashboard,
 });
 
@@ -94,7 +94,7 @@ function Dashboard() {
             Admin access only
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
-            This area is reserved for the Zevorin atelier administrator.
+            This area is reserved for the ZÉVORIN atelier administrator.
           </p>
         </div>
       </Shell>
@@ -192,7 +192,7 @@ function Dashboard() {
             Dashboard
           </h1>
           <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-            Manage the Zevorin catalogue. Add new pieces, retire old ones.
+            Manage the ZÉVORIN catalogue. Add new pieces, retire old ones.
           </p>
         </div>
 

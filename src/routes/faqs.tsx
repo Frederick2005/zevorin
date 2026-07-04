@@ -6,8 +6,8 @@ import { Plus, Minus } from "lucide-react";
 export const Route = createFileRoute("/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQs — ZEVORIN" },
-      { name: "description", content: "Frequently asked questions about Zevorin orders, shipping, returns, and tickets." },
+      { title: "FAQs — ZÉVORIN" },
+      { name: "description", content: "Frequently asked questions about ZÉVORIN orders, shipping, returns, and tickets." },
     ],
   }),
   component: FAQs,

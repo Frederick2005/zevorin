@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const KEY = "zevorin-theme";
+const KEY = "zévorin-theme";
 
 export function useTheme() {
   const [theme, setTheme] = useState<"light" | "dark">("light");

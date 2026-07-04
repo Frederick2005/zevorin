@@ -5,7 +5,7 @@ import { Shell } from "@/components/layout/Shell";
 export const Route = createFileRoute("/legal")({
   head: () => ({
     meta: [
-      { title: "Legal — ZEVORIN" },
+      { title: "Legal — ZÉVORIN" },
       { name: "description", content: "Privacy Policy, Terms of Service, and Returns Policy." },
     ],
   }),
@@ -47,14 +47,14 @@ function Legal() {
               <h2 className="text-xl font-semibold">Privacy Policy</h2>
               <p>We collect only the information needed to fulfill your orders: name, email, phone, and shipping address. We never sell your data.</p>
               <p>Payment information is handled directly by Flutterwave and never stored on our servers. Authentication is provided by our backend, which keeps your account details encrypted at rest.</p>
-              <p>You may request deletion of your account and personal data at any time by emailing atelier@zevorin.ug.</p>
+              <p>You may request deletion of your account and personal data at any time by emailing atelier@zévorin.ug.</p>
             </div>
           )}
           {tab === "terms" && (
             <div className="space-y-4">
               <h2 className="text-xl font-semibold">Terms of Service</h2>
               <p>By placing an order on this site, you agree to these terms. Prices are listed in Uganda Shillings (UGX) and include VAT where applicable.</p>
-              <p>All Zevorin artwork, imagery, and product designs are the property of Zevorin Atelier, Kampala. Personal use of imagery is welcome with credit; commercial use requires written permission.</p>
+              <p>All ZÉVORIN artwork, imagery, and product designs are the property of ZÉVORIN Atelier, Kampala. Personal use of imagery is welcome with credit; commercial use requires written permission.</p>
               <p>Disputes are governed by the laws of the Republic of Uganda.</p>
             </div>
           )}
@@ -63,7 +63,7 @@ function Legal() {
               <h2 className="text-xl font-semibold">Returns &amp; Refunds</h2>
               <p>Unworn, unwashed clothing items with original tags may be returned within 14 days of delivery. Refunds are issued to the original Mobile Money number or card.</p>
               <p>Sale items are final. Custom-made pieces are non-returnable.</p>
-              <p>Drop off returns at our Nakasero studio or arrange a SafeBoda pickup by emailing atelier@zevorin.ug.</p>
+              <p>Drop off returns at our Nakasero studio or arrange a SafeBoda pickup by emailing atelier@zévorin.ug.</p>
             </div>
           )}
         </div>

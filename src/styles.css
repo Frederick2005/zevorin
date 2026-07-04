@@ -1,11 +1,10 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * ZEVORIN — strict monochrome design system.
+ * ZÉVORIN — strict monochrome design system.
  * Only black, white and grays. No accent hues anywhere.
  */
 

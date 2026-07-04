@@ -49,7 +49,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-8">
         <Link to="/" className="text-display text-xl font-black tracking-tight">
-          ZEVORIN
+          ZÉVORIN
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

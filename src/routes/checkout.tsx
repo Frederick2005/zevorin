@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { initiatePayment } from "@/lib/payments.functions";
 
 export const Route = createFileRoute("/checkout")({
-  head: () => ({ meta: [{ title: "Checkout — ZEVORIN" }] }),
+  head: () => ({ meta: [{ title: "Checkout — ZÉVORIN" }] }),
   component: Checkout,
 });
 

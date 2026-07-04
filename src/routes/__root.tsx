@@ -78,14 +78,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ZEVORIN — Editorial Monochrome Clothing · Kampala, Uganda" },
+      { title: "ZÉVORIN — Editorial Monochrome Clothing · Kampala, Uganda" },
       {
         name: "description",
         content:
-          "Zevorin is a monochrome clothing atelier in Kampala, Uganda. Shop editorial pieces tailored locally and shipped across Uganda.",
+          "ZÉVORIN is a monochrome clothing atelier in Kampala, Uganda. Shop editorial pieces tailored locally and shipped across Uganda.",
       },
-      { name: "author", content: "Zevorin Atelier" },
-      { property: "og:title", content: "ZEVORIN" },
+      { name: "author", content: "ZÉVORIN Atelier" },
+      { property: "og:title", content: "ZÉVORIN" },
       {
         property: "og:description",
         content: "Editorial monochrome clothing from Kampala, Uganda.",

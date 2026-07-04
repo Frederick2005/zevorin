@@ -9,8 +9,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Create Account — ZEVORIN" },
-      { name: "description", content: "Join Zevorin. Monochrome fashion from Kampala." },
+      { title: "Create Account — ZÉVORIN" },
+      { name: "description", content: "Join ZÉVORIN. Monochrome fashion from Kampala." },
     ],
   }),
   component: SignupPage,
@@ -94,7 +94,7 @@ function SignupPage() {
         setFormError(error.message);
         return;
       }
-      toast.success("Welcome to Zevorin");
+      toast.success("Welcome to ZÉVORIN");
       navigate({ to: "/shop" });
     } finally {
       setSubmitting(false);
@@ -117,12 +117,12 @@ function SignupPage() {
         <aside className="relative hidden md:col-span-3 md:block">
           <img
             src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80"
-            alt="Zevorin editorial"
+            alt="ZÉVORIN editorial"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/50 to-transparent" />
           <div className="relative z-10 flex h-full flex-col justify-between p-12 text-white">
-            <div className="text-display text-2xl font-black tracking-tight">ZEVORIN</div>
+            <div className="text-display text-2xl font-black tracking-tight">ZÉVORIN</div>
             <div>
               <h2 className="text-display text-5xl font-bold leading-[0.95] lg:text-7xl">
                 Where Style<br />Meets Art.
@@ -139,7 +139,7 @@ function SignupPage() {
           <div className="w-full max-w-md">
             <div className="text-eyebrow text-muted-foreground">Create account</div>
             <h1 className="text-display mt-2 text-3xl font-bold md:text-4xl">
-              Join Zevorin
+              Join ZÉVORIN
             </h1>
             <p className="mt-3 text-sm text-muted-foreground">
               Already have an account?{" "}

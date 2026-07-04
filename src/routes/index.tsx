@@ -8,13 +8,13 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ZEVORIN — Monochrome Clothing from Kampala, Uganda" },
+      { title: "ZÉVORIN — Monochrome Clothing from Kampala, Uganda" },
       {
         name: "description",
         content:
-          "Editorial monochrome clothing, designed and tailored in Kampala. Shop the Zevorin collection across Uganda.",
+          "Editorial monochrome clothing, designed and tailored in Kampala. Shop the ZÉVORIN collection across Uganda.",
       },
-      { property: "og:title", content: "ZEVORIN" },
+      { property: "og:title", content: "ZÉVORIN" },
       { property: "og:description", content: "Editorial monochrome clothing from Kampala, Uganda." },
     ],
   }),
@@ -45,7 +45,7 @@ function Index() {
           <div className="flex flex-col justify-between px-5 py-16 md:col-span-5 md:px-12 md:py-24">
             <div className="text-eyebrow">SS27 — Volume 01 · Kampala</div>
             <h1 className="text-display mt-10 text-[14vw] font-black leading-[0.85] md:mt-16 md:text-[6.5rem]">
-              ZEVORIN 
+              ZÉVORIN 
             </h1>
             <div className="mt-10 max-w-sm text-sm text-muted-foreground md:mt-16">
               A monochrome study in negative space — clothing cut, sewn and

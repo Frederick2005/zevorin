@@ -14,7 +14,7 @@ const search = z.object({
 
 export const Route = createFileRoute("/account")({
   validateSearch: zodValidator(search),
-  head: () => ({ meta: [{ title: "Account — ZEVORIN" }] }),
+  head: () => ({ meta: [{ title: "Account — ZÉVORIN" }] }),
   component: Account,
 });
 

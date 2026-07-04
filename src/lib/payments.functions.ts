@@ -32,7 +32,7 @@ export const initiatePayment = createServerFn({ method: "POST" })
       redirect_url: data.redirectUrl,
       payment_options: "mobilemoneyuganda,card",
       customer: { email: data.email, phonenumber: data.phone, name: data.name },
-      customizations: { title: "ZEVORIN", description: "Order payment" },
+      customizations: { title: "ZÉVORIN", description: "Order payment" },
       meta: { order_id: data.orderId },
     };
 

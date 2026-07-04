@@ -21,7 +21,7 @@ export const Route = createFileRoute("/shop")({
   validateSearch: zodValidator(searchSchema),
   head: () => ({
     meta: [
-      { title: "Shop — ZEVORIN" },
+      { title: "Shop — ZÉVORIN" },
       { name: "description", content: "Shop monochrome editorial clothing across Men, Women, and Kids." },
     ],
   }),
