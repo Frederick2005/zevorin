@@ -91,6 +91,4 @@ desktop.ini
 .turbo/
 
 # Keep the repository's safe environment examples
-!env.example
-!env.example.*
-!
+!.env.example

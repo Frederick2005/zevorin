@@ -81,7 +81,11 @@ export function Header() {
             onClick={toggle}
             className="hidden h-10 w-10 items-center justify-center text-foreground/80 hover:text-foreground md:flex"
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
           </button>
           <Link
             to="/account"

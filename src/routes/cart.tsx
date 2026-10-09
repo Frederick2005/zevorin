@@ -21,8 +21,13 @@ function CartPage() {
 
         {items.length === 0 ? (
           <div className="mt-16 border border-border py-24 text-center">
-            <div className="text-eyebrow text-muted-foreground">Your bag is empty</div>
-            <Link to="/shop" className="mt-6 inline-block bg-foreground px-6 py-3 text-eyebrow text-background">
+            <div className="text-eyebrow text-muted-foreground">
+              Your bag is empty
+            </div>
+            <Link
+              to="/shop"
+              className="mt-6 inline-block bg-foreground px-6 py-3 text-eyebrow text-background"
+            >
               Start shopping
             </Link>
           </div>
@@ -35,13 +40,21 @@ function CartPage() {
                   className="grid grid-cols-[88px_1fr_auto] gap-4 border-b border-border py-6 md:grid-cols-[120px_1fr_auto_auto]"
                 >
                   <div className="aspect-square overflow-hidden bg-muted">
-                    {i.image && <img src={i.image} alt="" className="h-full w-full object-cover" />}
+                    {i.image && (
+                      <img
+                        src={i.image}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    )}
                   </div>
                   <div>
                     <div className="text-eyebrow text-muted-foreground">
                       {i.type === "ticket" ? "Ticket" : "Apparel"}
                     </div>
-                    <div className="mt-1 text-sm font-medium md:text-base">{i.name}</div>
+                    <div className="mt-1 text-sm font-medium md:text-base">
+                      {i.name}
+                    </div>
                     <div className="mt-1 text-xs text-muted-foreground">
                       {i.meta}
                       {i.size && <>Size {i.size}</>}
@@ -49,11 +62,21 @@ function CartPage() {
                       {i.color && <>{i.color}</>}
                     </div>
                     <div className="mt-3 inline-flex items-center border border-border">
-                      <button aria-label="Decrease" onClick={() => updateQuantity(i.lineId, i.quantity - 1)} className="p-2">
+                      <button
+                        aria-label="Decrease"
+                        onClick={() => updateQuantity(i.lineId, i.quantity - 1)}
+                        className="p-2"
+                      >
                         <Minus className="h-3 w-3" />
                       </button>
-                      <div className="w-8 text-center text-sm tabular-nums">{i.quantity}</div>
-                      <button aria-label="Increase" onClick={() => updateQuantity(i.lineId, i.quantity + 1)} className="p-2">
+                      <div className="w-8 text-center text-sm tabular-nums">
+                        {i.quantity}
+                      </div>
+                      <button
+                        aria-label="Increase"
+                        onClick={() => updateQuantity(i.lineId, i.quantity + 1)}
+                        className="p-2"
+                      >
                         <Plus className="h-3 w-3" />
                       </button>
                     </div>
@@ -86,7 +109,10 @@ function CartPage() {
                 <span>Total</span>
                 <span className="tabular-nums">{formatPrice(subtotal)}</span>
               </div>
-              <Link to="/checkout" className="mt-6 block w-full bg-foreground py-3 text-center text-eyebrow text-background hover:bg-foreground/85">
+              <Link
+                to="/checkout"
+                className="mt-6 block w-full bg-foreground py-3 text-center text-eyebrow text-background hover:bg-foreground/85"
+              >
                 Proceed to checkout
               </Link>
               <div className="mt-3 text-center text-[10px] uppercase tracking-widest text-muted-foreground">

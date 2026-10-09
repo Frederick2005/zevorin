@@ -42,7 +42,9 @@ function Contact() {
       <div className="mx-auto grid max-w-[1100px] gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
         <div>
           <div className="text-eyebrow text-muted-foreground">Atelier</div>
-          <h1 className="text-display mt-2 text-4xl font-bold md:text-6xl">Contact</h1>
+          <h1 className="text-display mt-2 text-4xl font-bold md:text-6xl">
+            Contact
+          </h1>
           <div className="mt-10 space-y-6 text-sm">
             <div>
               <div className="text-eyebrow mb-1">Studio</div>
@@ -50,15 +52,21 @@ function Contact() {
             </div>
             <div>
               <div className="text-eyebrow mb-1">Email</div>
-              <a href="mailto:atelier@zévorin.ug" className="hover:underline">atelier@zévorin.ug</a>
+              <a href="mailto:atelier@zévorin.ug" className="hover:underline">
+                atelier@zévorin.ug
+              </a>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Press</div>
-              <a href="mailto:press@zévorin.ug" className="hover:underline">press@zévorin.ug</a>
+              <a href="mailto:press@zévorin.ug" className="hover:underline">
+                press@zévorin.ug
+              </a>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Phone</div>
-              <a href="tel:+256700000000" className="hover:underline">+256 700 000 000</a>
+              <a href="tel:+256700000000" className="hover:underline">
+                +256 700 000 000
+              </a>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Hours</div>
@@ -67,16 +75,35 @@ function Contact() {
           </div>
         </div>
 
-        <form onSubmit={submit} className="space-y-3 border border-border p-6 md:p-8">
+        <form
+          onSubmit={submit}
+          className="space-y-3 border border-border p-6 md:p-8"
+        >
           <div className="text-eyebrow mb-2">Write to us</div>
-          <input placeholder="Name" value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })} className={input} />
-          <input type="email" placeholder="Email" value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })} className={input} />
-          <textarea rows={6} placeholder="Message" value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })} className={input} />
-          <button disabled={sending}
-            className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50">
+          <input
+            placeholder="Name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            className={input}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className={input}
+          />
+          <textarea
+            rows={6}
+            placeholder="Message"
+            value={form.message}
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            className={input}
+          />
+          <button
+            disabled={sending}
+            className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50"
+          >
             {sending ? "Sending…" : "Send message"}
           </button>
         </form>

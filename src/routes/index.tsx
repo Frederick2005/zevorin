@@ -15,7 +15,10 @@ export const Route = createFileRoute("/")({
           "Editorial monochrome clothing, designed and tailored in Kampala. Shop the ZÉVORIN collection across Uganda.",
       },
       { property: "og:title", content: "ZÉVORIN" },
-      { property: "og:description", content: "Editorial monochrome clothing from Kampala, Uganda." },
+      {
+        property: "og:description",
+        content: "Editorial monochrome clothing from Kampala, Uganda.",
+      },
     ],
   }),
   loader: ({ context }) => {
@@ -45,7 +48,7 @@ function Index() {
           <div className="flex flex-col justify-between px-5 py-16 md:col-span-5 md:px-12 md:py-24">
             <div className="text-eyebrow">SS27 — Volume 01 · Kampala</div>
             <h1 className="text-display mt-10 text-[14vw] font-black leading-[0.85] md:mt-16 md:text-[6.5rem]">
-              ZÉVORIN 
+              ZÉVORIN
             </h1>
             <div className="mt-10 max-w-sm text-sm text-muted-foreground md:mt-16">
               A monochrome study in negative space — clothing cut, sewn and
@@ -88,14 +91,22 @@ function Index() {
               The Collection
             </h2>
           </div>
-          <Link to="/shop" className="text-eyebrow underline-offset-4 hover:underline">
+          <Link
+            to="/shop"
+            className="text-eyebrow underline-offset-4 hover:underline"
+          >
             View all →
           </Link>
         </div>
 
         <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
           {featured.map((p) => (
-            <Link key={p.id} to="/product/$id" params={{ id: p.id }} className="group">
+            <Link
+              key={p.id}
+              to="/product/$id"
+              params={{ id: p.id }}
+              className="group"
+            >
               <div className="aspect-[3/4] overflow-hidden bg-muted">
                 <img
                   src={p.images[0]}
@@ -106,7 +117,9 @@ function Index() {
               </div>
               <div className="mt-3 flex items-start justify-between gap-2">
                 <div className="text-sm font-medium">{p.name}</div>
-                <div className="text-sm tabular-nums">{formatPrice(p.price)}</div>
+                <div className="text-sm tabular-nums">
+                  {formatPrice(p.price)}
+                </div>
               </div>
               <div className="mt-1 text-[11px] uppercase tracking-widest text-muted-foreground">
                 {p.category}

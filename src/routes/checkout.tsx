@@ -17,7 +17,12 @@ function Checkout() {
   const subtotal = items.reduce((s, i) => s + i.price * i.quantity, 0);
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({ email: "", fullName: "", phone: "", address: "" });
+  const [form, setForm] = useState({
+    email: "",
+    fullName: "",
+    phone: "",
+    address: "",
+  });
   const [loading, setLoading] = useState(false);
 
   if (items.length === 0) {
@@ -25,7 +30,9 @@ function Checkout() {
       <Shell>
         <div className="mx-auto max-w-xl px-5 py-24 text-center">
           <h1 className="text-display text-3xl font-bold">Your bag is empty</h1>
-          <Link to="/shop" className="text-eyebrow mt-6 inline-block underline">Shop the collection</Link>
+          <Link to="/shop" className="text-eyebrow mt-6 inline-block underline">
+            Shop the collection
+          </Link>
         </div>
       </Shell>
     );
@@ -88,7 +95,9 @@ function Checkout() {
         }
       } catch (err) {
         console.warn("Payment initiation skipped:", err);
-        toast.success("Order placed. Add a Flutterwave key to enable live Mobile Money checkout.");
+        toast.success(
+          "Order placed. Add a Flutterwave key to enable live Mobile Money checkout.",
+        );
         clear();
         navigate({ to: "/account", search: { order: order.id } as never });
         return;
@@ -109,26 +118,48 @@ function Checkout() {
       <div className="mx-auto grid max-w-[1200px] gap-12 px-5 py-12 md:grid-cols-[1fr_380px] md:px-8 md:py-16">
         <form onSubmit={submit} className="space-y-10">
           <div>
-            <h1 className="text-display text-3xl font-bold md:text-5xl">Checkout</h1>
-            <div className="text-eyebrow mt-2 text-muted-foreground">Guest checkout enabled</div>
+            <h1 className="text-display text-3xl font-bold md:text-5xl">
+              Checkout
+            </h1>
+            <div className="text-eyebrow mt-2 text-muted-foreground">
+              Guest checkout enabled
+            </div>
           </div>
 
           <section>
             <div className="text-eyebrow mb-4">Contact</div>
             <div className="grid gap-3">
-              <input type="email" placeholder="Email" className={input}
-                value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-              <input placeholder="Full name" className={input}
-                value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
-              <input placeholder="Phone (for Mobile Money)" className={input}
-                value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+              <input
+                type="email"
+                placeholder="Email"
+                className={input}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+              />
+              <input
+                placeholder="Full name"
+                className={input}
+                value={form.fullName}
+                onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+              />
+              <input
+                placeholder="Phone (for Mobile Money)"
+                className={input}
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              />
             </div>
           </section>
 
           <section>
             <div className="text-eyebrow mb-4">Delivery</div>
-            <textarea placeholder="Address" rows={3} className={input}
-              value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
+            <textarea
+              placeholder="Address"
+              rows={3}
+              className={input}
+              value={form.address}
+              onChange={(e) => setForm({ ...form, address: e.target.value })}
+            />
           </section>
 
           <section>
@@ -141,8 +172,11 @@ function Checkout() {
             </div>
           </section>
 
-          <button disabled={loading} type="submit"
-            className="w-full bg-foreground py-4 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50">
+          <button
+            disabled={loading}
+            type="submit"
+            className="w-full bg-foreground py-4 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50"
+          >
             {loading ? "Processing…" : `Pay ${formatPrice(subtotal)}`}
           </button>
         </form>
@@ -154,7 +188,11 @@ function Checkout() {
               <li key={i.lineId} className="flex gap-3">
                 {i.image && (
                   <div className="h-16 w-16 shrink-0 overflow-hidden bg-muted">
-                    <img src={i.image} alt="" className="h-full w-full object-cover" />
+                    <img
+                      src={i.image}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                 )}
                 <div className="flex-1 text-xs">
@@ -165,7 +203,9 @@ function Checkout() {
                     {i.color ? ` · ${i.color}` : ""}
                   </div>
                 </div>
-                <div className="text-xs tabular-nums">{formatPrice(i.price * i.quantity)}</div>
+                <div className="text-xs tabular-nums">
+                  {formatPrice(i.price * i.quantity)}
+                </div>
               </li>
             ))}
           </ul>

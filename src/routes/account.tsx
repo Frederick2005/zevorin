@@ -59,7 +59,12 @@ function Account() {
     if (order) toast.success(`Order ${order.slice(0, 8)} placed.`);
   }, [order]);
 
-  if (loading) return <Shell><div className="p-12 text-sm text-muted-foreground">Loading…</div></Shell>;
+  if (loading)
+    return (
+      <Shell>
+        <div className="p-12 text-sm text-muted-foreground">Loading…</div>
+      </Shell>
+    );
 
   if (!user) {
     const submit = async (e: React.FormEvent) => {
@@ -90,17 +95,34 @@ function Account() {
       <Shell>
         <div className="mx-auto grid max-w-[1100px] gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
           <div>
-            <h1 className="text-display text-4xl font-bold md:text-6xl">Sign in</h1>
+            <h1 className="text-display text-4xl font-bold md:text-6xl">
+              Sign in
+            </h1>
             <p className="mt-6 max-w-sm text-sm text-muted-foreground">
               Sign in to track your orders and check out faster.
             </p>
           </div>
-          <form onSubmit={submit} className="space-y-4 border border-border p-8">
-            <div className="text-eyebrow border-b border-border pb-3">Sign in</div>
-            <input type="email" placeholder="Email" className={input}
-              value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-            <input type="password" placeholder="Password" className={input}
-              value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
+          <form
+            onSubmit={submit}
+            className="space-y-4 border border-border p-8"
+          >
+            <div className="text-eyebrow border-b border-border pb-3">
+              Sign in
+            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className={input}
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className={input}
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+            />
             <button className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85">
               Sign in
             </button>
@@ -116,7 +138,9 @@ function Account() {
         <div className="flex items-end justify-between border-b border-border pb-8">
           <div>
             <div className="text-eyebrow text-muted-foreground">Account</div>
-            <h1 className="text-display mt-2 text-3xl font-bold md:text-5xl">{user.email}</h1>
+            <h1 className="text-display mt-2 text-3xl font-bold md:text-5xl">
+              {user.email}
+            </h1>
           </div>
           <button
             onClick={async () => {
@@ -145,7 +169,9 @@ function Account() {
                   <div className="col-span-5 truncate">
                     {o.items.map((i) => `${i.name} × ${i.quantity}`).join(", ")}
                   </div>
-                  <div className="col-span-2 text-eyebrow uppercase">{o.status}</div>
+                  <div className="col-span-2 text-eyebrow uppercase">
+                    {o.status}
+                  </div>
                   <div className="col-span-2 text-right tabular-nums">
                     {formatPrice(Number(o.total_amount))}
                   </div>

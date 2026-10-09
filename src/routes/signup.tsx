@@ -3,14 +3,16 @@ import { useMemo, useState } from "react";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { Shell } from "@/components/layout/Shell";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
       { title: "Create Account — ZÉVORIN" },
-      { name: "description", content: "Join ZÉVORIN. Monochrome fashion from Kampala." },
+      {
+        name: "description",
+        content: "Join ZÉVORIN. Monochrome fashion from Kampala.",
+      },
     ],
   }),
   component: SignupPage,
@@ -52,8 +54,10 @@ function SignupPage() {
 
   const errors = useMemo(() => {
     const e: Record<string, string> = {};
-    if (!fullName.trim() || fullName.trim().length < 2) e.fullName = "Enter your full name";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = "Valid email required";
+    if (!fullName.trim() || fullName.trim().length < 2)
+      e.fullName = "Enter your full name";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      e.email = "Valid email required";
     if (!/^\d{7,12}$/.test(phone)) e.phone = "Valid phone number required";
     if (password.length < 8) e.password = "Minimum 8 characters";
     return e;
@@ -102,11 +106,13 @@ function SignupPage() {
   };
 
   const handleGoogle = async () => {
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin + "/shop",
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: `${window.location.origin}/shop` },
     });
-    if (result.error) {
-      toast.error("Google sign-in failed");
+    if (error) {
+      console.error("Google sign-in failed:", error.message);
+      toast.error("Google sign-in failed. Please try again.");
     }
   };
 
@@ -122,10 +128,14 @@ function SignupPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/50 to-transparent" />
           <div className="relative z-10 flex h-full flex-col justify-between p-12 text-white">
-            <div className="text-display text-2xl font-black tracking-tight">ZÉVORIN</div>
+            <div className="text-display text-2xl font-black tracking-tight">
+              ZÉVORIN
+            </div>
             <div>
               <h2 className="text-display text-5xl font-bold leading-[0.95] lg:text-7xl">
-                Where Style<br />Meets Art.
+                Where Style
+                <br />
+                Meets Art.
               </h2>
               <p className="mt-6 max-w-md text-sm text-white/70">
                 Kampala-made monochrome essentials. Join the atelier.
@@ -137,13 +147,18 @@ function SignupPage() {
         {/* Form */}
         <section className="md:col-span-2 flex items-center justify-center px-5 py-12 md:px-10 md:py-16">
           <div className="w-full max-w-md">
-            <div className="text-eyebrow text-muted-foreground">Create account</div>
+            <div className="text-eyebrow text-muted-foreground">
+              Create account
+            </div>
             <h1 className="text-display mt-2 text-3xl font-bold md:text-4xl">
               Join ZÉVORIN
             </h1>
             <p className="mt-3 text-sm text-muted-foreground">
               Already have an account?{" "}
-              <Link to="/account" className="underline underline-offset-4 hover:no-underline">
+              <Link
+                to="/account"
+                className="underline underline-offset-4 hover:no-underline"
+              >
                 Sign in
               </Link>
             </p>
@@ -239,7 +254,9 @@ function SignupPage() {
                     placeholder="772 123 456"
                     className="w-full bg-background px-4 py-3 text-sm outline-none"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value.replace(/[^\d]/g, ""))}
+                    onChange={(e) =>
+                      setPhone(e.target.value.replace(/[^\d]/g, ""))
+                    }
                     onBlur={() => onBlur("phone")}
                     aria-describedby="phone-err"
                     disabled={submitting}
@@ -271,7 +288,11 @@ function SignupPage() {
                     aria-label={showPw ? "Hide password" : "Show password"}
                     className="absolute inset-y-0 right-0 flex w-12 items-center justify-center text-foreground/70 hover:text-foreground"
                   >
-                    {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    {showPw ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
                   </button>
                 </div>
                 {password && (
@@ -292,7 +313,9 @@ function SignupPage() {
               </Field>
 
               <div className="space-y-3 pt-2">
-                <label className={`flex cursor-pointer items-start gap-3 text-sm ${agreeError ? "text-red-600" : ""}`}>
+                <label
+                  className={`flex cursor-pointer items-start gap-3 text-sm ${agreeError ? "text-red-600" : ""}`}
+                >
                   <input
                     type="checkbox"
                     checked={agree}
@@ -319,7 +342,9 @@ function SignupPage() {
                     className="mt-0.5 h-4 w-4 accent-foreground"
                     disabled={submitting}
                   />
-                  <span>Send me exclusive drops and early-bird show tickets.</span>
+                  <span>
+                    Send me exclusive drops and early-bird show tickets.
+                  </span>
                 </label>
               </div>
 
@@ -330,7 +355,8 @@ function SignupPage() {
               >
                 {submitting ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" /> Creating Account...
+                    <Loader2 className="h-4 w-4 animate-spin" /> Creating
+                    Account...
                   </>
                 ) : (
                   "Create Account"
@@ -391,7 +417,10 @@ function Field({
 function GoogleMark() {
   return (
     <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
-      <path fill="currentColor" d="M44.5 20H24v8.5h11.7C34.6 33 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6-6C34.1 5.5 29.3 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5 44.5 35.3 44.5 24c0-1.4-.2-2.7-.5-4z"/>
+      <path
+        fill="currentColor"
+        d="M44.5 20H24v8.5h11.7C34.6 33 30 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l6-6C34.1 5.5 29.3 3.5 24 3.5 12.7 3.5 3.5 12.7 3.5 24S12.7 44.5 24 44.5 44.5 35.3 44.5 24c0-1.4-.2-2.7-.5-4z"
+      />
     </svg>
   );
 }

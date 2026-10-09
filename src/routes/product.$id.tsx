@@ -1,4 +1,9 @@
-import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  notFound,
+  useNavigate,
+} from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Shell } from "@/components/layout/Shell";
@@ -8,21 +13,33 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/product/$id")({
   loader: async ({ context, params }) => {
-    const p = await context.queryClient.ensureQueryData(productByIdQuery(params.id));
+    const p = await context.queryClient.ensureQueryData(
+      productByIdQuery(params.id),
+    );
     if (!p) throw notFound();
     return p;
   },
   head: ({ loaderData }) => ({
     meta: [
       { title: `${loaderData?.name ?? "Product"} — ZÉVORIN` },
-      { name: "description", content: loaderData?.description ?? "ZÉVORIN product" },
-      { property: "og:title", content: `${loaderData?.name ?? "Product"} — ZÉVORIN` },
+      {
+        name: "description",
+        content: loaderData?.description ?? "ZÉVORIN product",
+      },
+      {
+        property: "og:title",
+        content: `${loaderData?.name ?? "Product"} — ZÉVORIN`,
+      },
       { property: "og:description", content: loaderData?.description ?? "" },
-      ...(loaderData?.images?.[0] ? [{ property: "og:image", content: loaderData.images[0] }] : []),
+      ...(loaderData?.images?.[0]
+        ? [{ property: "og:image", content: loaderData.images[0] }]
+        : []),
     ],
   }),
   errorComponent: ({ error }) => (
-    <Shell><div className="p-12 text-sm text-muted-foreground">{error.message}</div></Shell>
+    <Shell>
+      <div className="p-12 text-sm text-muted-foreground">{error.message}</div>
+    </Shell>
   ),
   notFoundComponent: () => (
     <Shell>
@@ -91,7 +108,11 @@ function ProductDetail() {
                     i === activeImg ? "border-foreground" : "border-border",
                   ].join(" ")}
                 >
-                  <img src={img} alt="" className="h-full w-full object-cover" />
+                  <img
+                    src={img}
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
                 </button>
               ))}
             </div>
@@ -99,9 +120,15 @@ function ProductDetail() {
         </div>
 
         <div>
-          <div className="text-eyebrow text-muted-foreground">{product.category}</div>
-          <h1 className="text-display mt-2 text-3xl font-bold md:text-5xl">{product.name}</h1>
-          <div className="mt-4 text-xl tabular-nums">{formatPrice(product.price)}</div>
+          <div className="text-eyebrow text-muted-foreground">
+            {product.category}
+          </div>
+          <h1 className="text-display mt-2 text-3xl font-bold md:text-5xl">
+            {product.name}
+          </h1>
+          <div className="mt-4 text-xl tabular-nums">
+            {formatPrice(product.price)}
+          </div>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
             {product.description}
           </p>
@@ -153,9 +180,19 @@ function ProductDetail() {
           <div className="mt-8">
             <div className="text-eyebrow mb-3">Quantity</div>
             <div className="inline-flex items-center border border-border">
-              <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="px-4 py-2">−</button>
+              <button
+                onClick={() => setQty((q) => Math.max(1, q - 1))}
+                className="px-4 py-2"
+              >
+                −
+              </button>
               <div className="w-10 text-center tabular-nums">{qty}</div>
-              <button onClick={() => setQty((q) => q + 1)} className="px-4 py-2">+</button>
+              <button
+                onClick={() => setQty((q) => q + 1)}
+                className="px-4 py-2"
+              >
+                +
+              </button>
             </div>
           </div>
 
@@ -167,7 +204,10 @@ function ProductDetail() {
               Add to bag
             </button>
             <button
-              onClick={() => { addToCart(); navigate({ to: "/cart" }); }}
+              onClick={() => {
+                addToCart();
+                navigate({ to: "/cart" });
+              }}
               className="flex-1 border border-foreground px-8 py-4 text-eyebrow hover:bg-foreground hover:text-background"
             >
               Buy now

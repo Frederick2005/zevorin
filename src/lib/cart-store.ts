@@ -46,7 +46,9 @@ export const useCart = create<CartState>()(
           return { items: [...state.items, { ...item, quantity: qty }] };
         }),
       removeItem: (lineId) =>
-        set((state) => ({ items: state.items.filter((i) => i.lineId !== lineId) })),
+        set((state) => ({
+          items: state.items.filter((i) => i.lineId !== lineId),
+        })),
       updateQuantity: (lineId, quantity) =>
         set((state) => ({
           items: state.items

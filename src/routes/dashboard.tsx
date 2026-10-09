@@ -47,7 +47,6 @@ function Dashboard() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
 
-
   useEffect(() => {
     (async () => {
       const { data: u } = await supabase.auth.getUser();
@@ -106,7 +105,10 @@ function Dashboard() {
     setSaving(true);
     const slug =
       form.slug.trim() ||
-      form.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      form.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
     const payload = {
       name: form.name.trim(),
       slug,
@@ -170,15 +172,14 @@ function Dashboard() {
       stock: String(p.stock ?? 0),
       is_featured: !!p.is_featured,
     });
-    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined")
+      window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const cancelEdit = () => {
     setEditingId(null);
     setForm(emptyForm);
   };
-
-
 
   const input =
     "w-full border border-border bg-background px-3 py-2 text-sm outline-none focus:border-foreground";
@@ -197,9 +198,14 @@ function Dashboard() {
         </div>
 
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <form onSubmit={submit} className="space-y-4 border border-border p-6">
+          <form
+            onSubmit={submit}
+            className="space-y-4 border border-border p-6"
+          >
             <div className="flex items-center justify-between">
-              <div className="text-eyebrow">{editingId ? "Edit product" : "New product"}</div>
+              <div className="text-eyebrow">
+                {editingId ? "Edit product" : "New product"}
+              </div>
               {editingId && (
                 <button
                   type="button"
@@ -229,7 +235,9 @@ function Dashboard() {
               rows={3}
               className={input}
               value={form.description}
-              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, description: e.target.value })
+              }
             />
             <div className="grid grid-cols-2 gap-3">
               <input
@@ -244,7 +252,10 @@ function Dashboard() {
                 className={input}
                 value={form.category}
                 onChange={(e) =>
-                  setForm({ ...form, category: e.target.value as FormState["category"] })
+                  setForm({
+                    ...form,
+                    category: e.target.value as FormState["category"],
+                  })
                 }
               >
                 <option value="men">Men</option>
@@ -301,14 +312,16 @@ function Dashboard() {
             </button>
           </form>
 
-
           <div>
             <div className="text-eyebrow mb-4">
               Catalogue ({products.length})
             </div>
             <ul className="divide-y divide-border border-y border-border">
               {products.map((p) => (
-                <li key={p.id} className="grid grid-cols-12 items-center gap-3 py-3 text-sm">
+                <li
+                  key={p.id}
+                  className="grid grid-cols-12 items-center gap-3 py-3 text-sm"
+                >
                   <div className="col-span-2 aspect-square overflow-hidden bg-muted">
                     {p.images?.[0] && (
                       <img

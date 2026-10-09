@@ -16,12 +16,14 @@ export type Product = {
   created_at: string;
 };
 
-
 export const productsQuery = (category?: string) =>
   queryOptions({
     queryKey: ["products", category ?? "all"],
     queryFn: async () => {
-      let q = supabase.from("products").select("*").order("created_at", { ascending: false });
+      let q = supabase
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (category && category !== "all") q = q.eq("category", category);
       const { data, error } = await q;
       if (error) throw error;
@@ -47,7 +49,11 @@ export const productByIdQuery = (id: string) =>
   queryOptions({
     queryKey: ["product", id],
     queryFn: async () => {
-      const { data, error } = await supabase.from("products").select("*").eq("id", id).maybeSingle();
+      const { data, error } = await supabase
+        .from("products")
+        .select("*")
+        .eq("id", id)
+        .maybeSingle();
       if (error) throw error;
       return data as unknown as Product | null;
     },
