@@ -16,7 +16,7 @@ const Input = z.object({
  * Requires the FLUTTERWAVE_SECRET_KEY secret to be configured.
  */
 export const initiatePayment = createServerFn({ method: "POST" })
-  .inputValidator((data) => Input.parse(data))
+  .validator((data) => Input.parse(data))
   .handler(async ({ data }) => {
     const secret = process.env.FLUTTERWAVE_SECRET_KEY;
     if (!secret) {
@@ -44,7 +44,11 @@ export const initiatePayment = createServerFn({ method: "POST" })
       },
       body: JSON.stringify(payload),
     });
-    const json = (await res.json()) as { status: string; data?: { link: string }; message?: string };
+    const json = (await res.json()) as {
+      status: string;
+      data?: { link: string };
+      message?: string;
+    };
     if (json.status !== "success" || !json.data?.link) {
       throw new Error(json.message ?? "Flutterwave payment initiation failed");
     }

@@ -1,6 +1,9 @@
 {
   "name": "tanstack_start_ts",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "sideEffects": false,
   "type": "module",
   "scripts": {
@@ -8,8 +11,11 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "cf:typegen": "wrangler types",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "deploy": "npm run build && wrangler deploy --config dist/server/wrangler.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
