@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { fallback, zodValidator } from "@tanstack/zod-adapter";
@@ -32,6 +32,7 @@ function Account() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ email: "", password: "" });
+  const [signingIn, setSigningIn] = useState(false);
   const [orders, setOrders] = useState<Order[]>([]);
   const navigate = useNavigate();
 
@@ -55,9 +56,7 @@ function Account() {
       .then(({ data }) => setOrders((data as unknown as Order[]) ?? []));
   }, [user]);
 
-  useEffect(() => {
-    if (order) toast.success(`Order ${order.slice(0, 8)} placed.`);
-  }, [order]);
+  useEffect(() => {}, [order]);
 
   if (loading)
     return (
@@ -67,11 +66,33 @@ function Account() {
     );
 
   if (!user) {
+    const forgot = async () => {
+      if (!form.email) {
+        toast.error("Enter your email above first.");
+        return;
+      }
+      await supabase.auth.resetPasswordForEmail(form.email, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+      // Same message whether or not the account exists.
+      toast.success(
+        "If an account exists for that email, a reset link is on its way.",
+      );
+    };
+
     const submit = async (e: React.FormEvent) => {
       e.preventDefault();
+      if (signingIn) return;
+      setSigningIn(true);
       const { data, error } = await supabase.auth.signInWithPassword(form);
+      setSigningIn(false);
       if (error) {
-        toast.error(error.message);
+        console.error("Sign-in failed:", error.message);
+        toast.error(
+          error.message.toLowerCase().includes("confirm")
+            ? "Please confirm your email address first."
+            : "Incorrect email or password.",
+        );
         return;
       }
       const uid = data.user?.id;
@@ -123,9 +144,20 @@ function Account() {
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
-            <button className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85">
-              Sign in
+            <button
+              disabled={signingIn}
+              className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50"
+            >
+              {signingIn ? "Signing in…" : "Sign in"}
             </button>
+            <div className="flex justify-between text-xs">
+              <button type="button" onClick={forgot} className="underline">
+                Forgot password?
+              </button>
+              <Link to="/signup" className="underline">
+                Create an account
+              </Link>
+            </div>
           </form>
         </div>
       </Shell>

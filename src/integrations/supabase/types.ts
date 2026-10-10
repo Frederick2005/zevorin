@@ -48,6 +48,11 @@ export type Database = {
           items: Json;
           payment_method: string;
           payment_reference: string | null;
+          currency: string;
+          tx_ref: string | null;
+          flutterwave_tx_id: string | null;
+          paid_at: string | null;
+          updated_at: string;
           shipping_address: string | null;
           status: string;
           total_amount: number;
@@ -62,6 +67,11 @@ export type Database = {
           items: Json;
           payment_method?: string;
           payment_reference?: string | null;
+          currency?: string;
+          tx_ref?: string | null;
+          flutterwave_tx_id?: string | null;
+          paid_at?: string | null;
+          updated_at?: string;
           shipping_address?: string | null;
           status?: string;
           total_amount: number;
@@ -76,6 +86,11 @@ export type Database = {
           items?: Json;
           payment_method?: string;
           payment_reference?: string | null;
+          currency?: string;
+          tx_ref?: string | null;
+          flutterwave_tx_id?: string | null;
+          paid_at?: string | null;
+          updated_at?: string;
           shipping_address?: string | null;
           status?: string;
           total_amount?: number;
@@ -193,6 +208,10 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      settle_order_paid: {
+        Args: { _order_id: string; _tx_id: string; _tx_ref: string };
+        Returns: boolean;
+      };
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"];

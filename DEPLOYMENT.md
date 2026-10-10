@@ -24,7 +24,7 @@ Runtime variables (Settings > Variables and Secrets, type Text):
 `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_PROJECT_ID`
 
 Runtime secrets (type Secret):
-`FLUTTERWAVE_SECRET_KEY` (payments); `SUPABASE_SERVICE_ROLE_KEY` only if the admin client is used (currently unused).
+`FLUTTERWAVE_SECRET_KEY`, `FLUTTERWAVE_WEBHOOK_HASH`, and `SUPABASE_SERVICE_ROLE_KEY` (all three required for checkout; set as Worker secrets). Optional: `SITE_URL`.
 
 ## Supabase (manual, in the Supabase dashboard)
 

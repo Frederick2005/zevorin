@@ -143,7 +143,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="border-b border-border py-3 text-sm font-medium"
             >
-              Account
+              Sign in / Account
             </Link>
             <button
               onClick={() => {

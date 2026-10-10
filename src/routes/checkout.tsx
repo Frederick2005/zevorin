@@ -1,10 +1,10 @@
-import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Shell } from "@/components/layout/Shell";
 import { formatPrice, useCart } from "@/lib/cart-store";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { initiatePayment } from "@/lib/payments.functions";
+import { createCheckout } from "@/lib/payments.functions";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({ meta: [{ title: "Checkout — ZÉVORIN" }] }),
@@ -13,9 +13,7 @@ export const Route = createFileRoute("/checkout")({
 
 function Checkout() {
   const items = useCart((s) => s.items);
-  const clear = useCart((s) => s.clear);
   const subtotal = items.reduce((s, i) => s + i.price * i.quantity, 0);
-  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     email: "",
@@ -44,68 +42,42 @@ function Checkout() {
       toast.error("Please complete all fields");
       return;
     }
+    if (loading) return; // block double submits
     setLoading(true);
     try {
-      const { data: userData } = await supabase.auth.getUser();
-
-      const { data: order, error } = await supabase
-        .from("orders")
-        .insert({
-          user_id: userData.user?.id ?? null,
-          customer_email: form.email,
-          customer_name: form.fullName,
-          customer_phone: form.phone,
-          shipping_address: form.address,
+      // Signed-in customers: attach the session so the order is theirs.
+      // The server verifies the token; guests simply send no token.
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData.session?.access_token;
+      const res = await createCheckout({
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        data: {
+          // Only the customer's choices are sent. Prices and totals are
+          // calculated on the server from the database.
           items: items.map((i) => ({
-            product_id: i.productId,
-            show_id: i.showId,
-            name: i.name,
-            price: i.price,
+            productId: i.type === "clothing" ? i.productId : undefined,
+            showId: i.type === "ticket" ? i.showId : undefined,
             quantity: i.quantity,
-            type: i.type,
             size: i.size,
             color: i.color,
           })),
-          total_amount: subtotal,
-          status: "pending",
-          payment_method: "mobile_money",
-        })
-        .select()
-        .single();
-      if (error) throw error;
-
-      try {
-        const res = await initiatePayment({
-          data: {
-            orderId: order.id,
-            amount: subtotal,
+          customer: {
             email: form.email,
             name: form.fullName,
-            phone: form.phone,
-            redirectUrl:
-              typeof window !== "undefined"
-                ? `${window.location.origin}/account?order=${order.id}`
-                : "/account",
+            phone: form.phone.replace(/[\s-]/g, ""),
+            address: form.address,
           },
-        });
-        if (res.link) {
-          clear();
-          window.location.href = res.link;
-          return;
-        }
-      } catch (err) {
-        console.warn("Payment initiation skipped:", err);
-        toast.success(
-          "Order placed. Add a Flutterwave key to enable live Mobile Money checkout.",
-        );
-        clear();
-        navigate({ to: "/account", search: { order: order.id } as never });
-        return;
-      }
+        },
+      });
+      // The bag is NOT cleared here: it is cleared only once payment is verified.
+      window.location.href = res.link;
     } catch (err) {
       console.error(err);
-      toast.error("Could not place order");
-    } finally {
+      toast.error(
+        err instanceof Error && err.message
+          ? err.message
+          : "We couldn't start your payment. Please try again.",
+      );
       setLoading(false);
     }
   };
@@ -177,7 +149,9 @@ function Checkout() {
             type="submit"
             className="w-full bg-foreground py-4 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50"
           >
-            {loading ? "Processing…" : `Pay ${formatPrice(subtotal)}`}
+            {loading
+              ? "Redirecting to payment…"
+              : `Pay ${formatPrice(subtotal)}`}
           </button>
         </form>
 

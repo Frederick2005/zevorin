@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -22,6 +24,8 @@ import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
+import { Route as OrderIdRouteImport } from './routes/order.$id'
+import { Route as ApiFlutterwaveWebhookRouteImport } from './routes/api.flutterwave-webhook'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -36,6 +40,16 @@ const SignupRoute = SignupRouteImport.update({
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LegalRoute = LegalRouteImport.update({
@@ -88,6 +102,16 @@ const ProductIdRoute = ProductIdRouteImport.update({
   path: '/product/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrderIdRoute = OrderIdRouteImport.update({
+  id: '/order/$id',
+  path: '/order/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiFlutterwaveWebhookRoute = ApiFlutterwaveWebhookRouteImport.update({
+  id: '/api/flutterwave-webhook',
+  path: '/api/flutterwave-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -99,9 +123,13 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/legal': typeof LegalRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
+  '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
@@ -114,9 +142,13 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/legal': typeof LegalRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
+  '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
@@ -130,9 +162,13 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/faqs': typeof FaqsRoute
   '/legal': typeof LegalRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
+  '/order/$id': typeof OrderIdRoute
   '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
@@ -147,9 +183,13 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/faqs'
     | '/legal'
+    | '/login'
+    | '/reset-password'
     | '/shop'
     | '/signup'
     | '/sitemap.xml'
+    | '/api/flutterwave-webhook'
+    | '/order/$id'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -162,9 +202,13 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/faqs'
     | '/legal'
+    | '/login'
+    | '/reset-password'
     | '/shop'
     | '/signup'
     | '/sitemap.xml'
+    | '/api/flutterwave-webhook'
+    | '/order/$id'
     | '/product/$id'
   id:
     | '__root__'
@@ -177,9 +221,13 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/faqs'
     | '/legal'
+    | '/login'
+    | '/reset-password'
     | '/shop'
     | '/signup'
     | '/sitemap.xml'
+    | '/api/flutterwave-webhook'
+    | '/order/$id'
     | '/product/$id'
   fileRoutesById: FileRoutesById
 }
@@ -193,9 +241,13 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   FaqsRoute: typeof FaqsRoute
   LegalRoute: typeof LegalRoute
+  LoginRoute: typeof LoginRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ShopRoute: typeof ShopRoute
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiFlutterwaveWebhookRoute: typeof ApiFlutterwaveWebhookRoute
+  OrderIdRoute: typeof OrderIdRoute
   ProductIdRoute: typeof ProductIdRoute
 }
 
@@ -220,6 +272,20 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legal': {
@@ -292,6 +358,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/order/$id': {
+      id: '/order/$id'
+      path: '/order/$id'
+      fullPath: '/order/$id'
+      preLoaderRoute: typeof OrderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/flutterwave-webhook': {
+      id: '/api/flutterwave-webhook'
+      path: '/api/flutterwave-webhook'
+      fullPath: '/api/flutterwave-webhook'
+      preLoaderRoute: typeof ApiFlutterwaveWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -305,9 +385,13 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   FaqsRoute: FaqsRoute,
   LegalRoute: LegalRoute,
+  LoginRoute: LoginRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ShopRoute: ShopRoute,
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiFlutterwaveWebhookRoute: ApiFlutterwaveWebhookRoute,
+  OrderIdRoute: OrderIdRoute,
   ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport

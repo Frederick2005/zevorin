@@ -27,8 +27,10 @@ function Contact() {
     setSending(true);
     const { error } = await supabase.from("contact_messages").insert(form);
     setSending(false);
-    if (error) toast.error(error.message);
-    else {
+    if (error) {
+      console.error("Contact form failed:", error.message);
+      toast.error("We couldn't send your message. Please try again.");
+    } else {
       toast.success("Message sent");
       setForm({ name: "", email: "", message: "" });
     }
