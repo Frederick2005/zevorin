@@ -8,370 +8,370 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as ShopRouteImport } from './routes/shop'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as LegalRouteImport } from './routes/legal'
-import { Route as FaqsRouteImport } from './routes/faqs'
-import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CheckoutRouteImport } from './routes/checkout'
-import { Route as CartRouteImport } from './routes/cart'
-import { Route as AccountRouteImport } from './routes/account'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProductIdRouteImport } from './routes/product.$id'
-import { Route as OrderIdRouteImport } from './routes/order.$id'
-import { Route as ApiFlutterwaveWebhookRouteImport } from './routes/api.flutterwave-webhook'
+import { Route as rootRouteImport } from "./routes/__root";
+import { Route as SitemapDotxmlRouteImport } from "./routes/sitemap[.]xml";
+import { Route as SignupRouteImport } from "./routes/signup";
+import { Route as ShopRouteImport } from "./routes/shop";
+import { Route as ResetPasswordRouteImport } from "./routes/reset-password";
+import { Route as LoginRouteImport } from "./routes/login";
+import { Route as LegalRouteImport } from "./routes/legal";
+import { Route as FaqsRouteImport } from "./routes/faqs";
+import { Route as DashboardRouteImport } from "./routes/dashboard";
+import { Route as ContactRouteImport } from "./routes/contact";
+import { Route as CheckoutRouteImport } from "./routes/checkout";
+import { Route as CartRouteImport } from "./routes/cart";
+import { Route as AccountRouteImport } from "./routes/account";
+import { Route as AboutRouteImport } from "./routes/about";
+import { Route as IndexRouteImport } from "./routes/index";
+import { Route as ProductIdRouteImport } from "./routes/product.$id";
+import { Route as OrderIdRouteImport } from "./routes/order.$id";
+import { Route as ApiFlutterwaveWebhookRouteImport } from "./routes/api.flutterwave-webhook";
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+  id: "/sitemap.xml",
+  path: "/sitemap.xml",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
+  id: "/signup",
+  path: "/signup",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ShopRoute = ShopRouteImport.update({
-  id: '/shop',
-  path: '/shop',
+  id: "/shop",
+  path: "/shop",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
+  id: "/reset-password",
+  path: "/reset-password",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
+  id: "/login",
+  path: "/login",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const LegalRoute = LegalRouteImport.update({
-  id: '/legal',
-  path: '/legal',
+  id: "/legal",
+  path: "/legal",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const FaqsRoute = FaqsRouteImport.update({
-  id: '/faqs',
-  path: '/faqs',
+  id: "/faqs",
+  path: "/faqs",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+  id: "/dashboard",
+  path: "/dashboard",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+  id: "/contact",
+  path: "/contact",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const CheckoutRoute = CheckoutRouteImport.update({
-  id: '/checkout',
-  path: '/checkout',
+  id: "/checkout",
+  path: "/checkout",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const CartRoute = CartRouteImport.update({
-  id: '/cart',
-  path: '/cart',
+  id: "/cart",
+  path: "/cart",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AccountRoute = AccountRouteImport.update({
-  id: '/account',
-  path: '/account',
+  id: "/account",
+  path: "/account",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+  id: "/about",
+  path: "/about",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ProductIdRoute = ProductIdRouteImport.update({
-  id: '/product/$id',
-  path: '/product/$id',
+  id: "/product/$id",
+  path: "/product/$id",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const OrderIdRoute = OrderIdRouteImport.update({
-  id: '/order/$id',
-  path: '/order/$id',
+  id: "/order/$id",
+  path: "/order/$id",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 const ApiFlutterwaveWebhookRoute = ApiFlutterwaveWebhookRouteImport.update({
-  id: '/api/flutterwave-webhook',
-  path: '/api/flutterwave-webhook',
+  id: "/api/flutterwave-webhook",
+  path: "/api/flutterwave-webhook",
   getParentRoute: () => rootRouteImport,
-} as any)
+} as any);
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/cart': typeof CartRoute
-  '/checkout': typeof CheckoutRoute
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRoute
-  '/faqs': typeof FaqsRoute
-  '/legal': typeof LegalRoute
-  '/login': typeof LoginRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/shop': typeof ShopRoute
-  '/signup': typeof SignupRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
-  '/order/$id': typeof OrderIdRoute
-  '/product/$id': typeof ProductIdRoute
+  "/": typeof IndexRoute;
+  "/about": typeof AboutRoute;
+  "/account": typeof AccountRoute;
+  "/cart": typeof CartRoute;
+  "/checkout": typeof CheckoutRoute;
+  "/contact": typeof ContactRoute;
+  "/dashboard": typeof DashboardRoute;
+  "/faqs": typeof FaqsRoute;
+  "/legal": typeof LegalRoute;
+  "/login": typeof LoginRoute;
+  "/reset-password": typeof ResetPasswordRoute;
+  "/shop": typeof ShopRoute;
+  "/signup": typeof SignupRoute;
+  "/sitemap.xml": typeof SitemapDotxmlRoute;
+  "/api/flutterwave-webhook": typeof ApiFlutterwaveWebhookRoute;
+  "/order/$id": typeof OrderIdRoute;
+  "/product/$id": typeof ProductIdRoute;
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/cart': typeof CartRoute
-  '/checkout': typeof CheckoutRoute
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRoute
-  '/faqs': typeof FaqsRoute
-  '/legal': typeof LegalRoute
-  '/login': typeof LoginRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/shop': typeof ShopRoute
-  '/signup': typeof SignupRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
-  '/order/$id': typeof OrderIdRoute
-  '/product/$id': typeof ProductIdRoute
+  "/": typeof IndexRoute;
+  "/about": typeof AboutRoute;
+  "/account": typeof AccountRoute;
+  "/cart": typeof CartRoute;
+  "/checkout": typeof CheckoutRoute;
+  "/contact": typeof ContactRoute;
+  "/dashboard": typeof DashboardRoute;
+  "/faqs": typeof FaqsRoute;
+  "/legal": typeof LegalRoute;
+  "/login": typeof LoginRoute;
+  "/reset-password": typeof ResetPasswordRoute;
+  "/shop": typeof ShopRoute;
+  "/signup": typeof SignupRoute;
+  "/sitemap.xml": typeof SitemapDotxmlRoute;
+  "/api/flutterwave-webhook": typeof ApiFlutterwaveWebhookRoute;
+  "/order/$id": typeof OrderIdRoute;
+  "/product/$id": typeof ProductIdRoute;
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/account': typeof AccountRoute
-  '/cart': typeof CartRoute
-  '/checkout': typeof CheckoutRoute
-  '/contact': typeof ContactRoute
-  '/dashboard': typeof DashboardRoute
-  '/faqs': typeof FaqsRoute
-  '/legal': typeof LegalRoute
-  '/login': typeof LoginRoute
-  '/reset-password': typeof ResetPasswordRoute
-  '/shop': typeof ShopRoute
-  '/signup': typeof SignupRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/api/flutterwave-webhook': typeof ApiFlutterwaveWebhookRoute
-  '/order/$id': typeof OrderIdRoute
-  '/product/$id': typeof ProductIdRoute
+  __root__: typeof rootRouteImport;
+  "/": typeof IndexRoute;
+  "/about": typeof AboutRoute;
+  "/account": typeof AccountRoute;
+  "/cart": typeof CartRoute;
+  "/checkout": typeof CheckoutRoute;
+  "/contact": typeof ContactRoute;
+  "/dashboard": typeof DashboardRoute;
+  "/faqs": typeof FaqsRoute;
+  "/legal": typeof LegalRoute;
+  "/login": typeof LoginRoute;
+  "/reset-password": typeof ResetPasswordRoute;
+  "/shop": typeof ShopRoute;
+  "/signup": typeof SignupRoute;
+  "/sitemap.xml": typeof SitemapDotxmlRoute;
+  "/api/flutterwave-webhook": typeof ApiFlutterwaveWebhookRoute;
+  "/order/$id": typeof OrderIdRoute;
+  "/product/$id": typeof ProductIdRoute;
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
+  fileRoutesByFullPath: FileRoutesByFullPath;
   fullPaths:
-    | '/'
-    | '/about'
-    | '/account'
-    | '/cart'
-    | '/checkout'
-    | '/contact'
-    | '/dashboard'
-    | '/faqs'
-    | '/legal'
-    | '/login'
-    | '/reset-password'
-    | '/shop'
-    | '/signup'
-    | '/sitemap.xml'
-    | '/api/flutterwave-webhook'
-    | '/order/$id'
-    | '/product/$id'
-  fileRoutesByTo: FileRoutesByTo
+    | "/"
+    | "/about"
+    | "/account"
+    | "/cart"
+    | "/checkout"
+    | "/contact"
+    | "/dashboard"
+    | "/faqs"
+    | "/legal"
+    | "/login"
+    | "/reset-password"
+    | "/shop"
+    | "/signup"
+    | "/sitemap.xml"
+    | "/api/flutterwave-webhook"
+    | "/order/$id"
+    | "/product/$id";
+  fileRoutesByTo: FileRoutesByTo;
   to:
-    | '/'
-    | '/about'
-    | '/account'
-    | '/cart'
-    | '/checkout'
-    | '/contact'
-    | '/dashboard'
-    | '/faqs'
-    | '/legal'
-    | '/login'
-    | '/reset-password'
-    | '/shop'
-    | '/signup'
-    | '/sitemap.xml'
-    | '/api/flutterwave-webhook'
-    | '/order/$id'
-    | '/product/$id'
+    | "/"
+    | "/about"
+    | "/account"
+    | "/cart"
+    | "/checkout"
+    | "/contact"
+    | "/dashboard"
+    | "/faqs"
+    | "/legal"
+    | "/login"
+    | "/reset-password"
+    | "/shop"
+    | "/signup"
+    | "/sitemap.xml"
+    | "/api/flutterwave-webhook"
+    | "/order/$id"
+    | "/product/$id";
   id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/account'
-    | '/cart'
-    | '/checkout'
-    | '/contact'
-    | '/dashboard'
-    | '/faqs'
-    | '/legal'
-    | '/login'
-    | '/reset-password'
-    | '/shop'
-    | '/signup'
-    | '/sitemap.xml'
-    | '/api/flutterwave-webhook'
-    | '/order/$id'
-    | '/product/$id'
-  fileRoutesById: FileRoutesById
+    | "__root__"
+    | "/"
+    | "/about"
+    | "/account"
+    | "/cart"
+    | "/checkout"
+    | "/contact"
+    | "/dashboard"
+    | "/faqs"
+    | "/legal"
+    | "/login"
+    | "/reset-password"
+    | "/shop"
+    | "/signup"
+    | "/sitemap.xml"
+    | "/api/flutterwave-webhook"
+    | "/order/$id"
+    | "/product/$id";
+  fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AccountRoute: typeof AccountRoute
-  CartRoute: typeof CartRoute
-  CheckoutRoute: typeof CheckoutRoute
-  ContactRoute: typeof ContactRoute
-  DashboardRoute: typeof DashboardRoute
-  FaqsRoute: typeof FaqsRoute
-  LegalRoute: typeof LegalRoute
-  LoginRoute: typeof LoginRoute
-  ResetPasswordRoute: typeof ResetPasswordRoute
-  ShopRoute: typeof ShopRoute
-  SignupRoute: typeof SignupRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  ApiFlutterwaveWebhookRoute: typeof ApiFlutterwaveWebhookRoute
-  OrderIdRoute: typeof OrderIdRoute
-  ProductIdRoute: typeof ProductIdRoute
+  IndexRoute: typeof IndexRoute;
+  AboutRoute: typeof AboutRoute;
+  AccountRoute: typeof AccountRoute;
+  CartRoute: typeof CartRoute;
+  CheckoutRoute: typeof CheckoutRoute;
+  ContactRoute: typeof ContactRoute;
+  DashboardRoute: typeof DashboardRoute;
+  FaqsRoute: typeof FaqsRoute;
+  LegalRoute: typeof LegalRoute;
+  LoginRoute: typeof LoginRoute;
+  ResetPasswordRoute: typeof ResetPasswordRoute;
+  ShopRoute: typeof ShopRoute;
+  SignupRoute: typeof SignupRoute;
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute;
+  ApiFlutterwaveWebhookRoute: typeof ApiFlutterwaveWebhookRoute;
+  OrderIdRoute: typeof OrderIdRoute;
+  ProductIdRoute: typeof ProductIdRoute;
 }
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/shop': {
-      id: '/shop'
-      path: '/shop'
-      fullPath: '/shop'
-      preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legal': {
-      id: '/legal'
-      path: '/legal'
-      fullPath: '/legal'
-      preLoaderRoute: typeof LegalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faqs': {
-      id: '/faqs'
-      path: '/faqs'
-      fullPath: '/faqs'
-      preLoaderRoute: typeof FaqsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/checkout': {
-      id: '/checkout'
-      path: '/checkout'
-      fullPath: '/checkout'
-      preLoaderRoute: typeof CheckoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/cart': {
-      id: '/cart'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account': {
-      id: '/account'
-      path: '/account'
-      fullPath: '/account'
-      preLoaderRoute: typeof AccountRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product/$id': {
-      id: '/product/$id'
-      path: '/product/$id'
-      fullPath: '/product/$id'
-      preLoaderRoute: typeof ProductIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/order/$id': {
-      id: '/order/$id'
-      path: '/order/$id'
-      fullPath: '/order/$id'
-      preLoaderRoute: typeof OrderIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/flutterwave-webhook': {
-      id: '/api/flutterwave-webhook'
-      path: '/api/flutterwave-webhook'
-      fullPath: '/api/flutterwave-webhook'
-      preLoaderRoute: typeof ApiFlutterwaveWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
+    "/sitemap.xml": {
+      id: "/sitemap.xml";
+      path: "/sitemap.xml";
+      fullPath: "/sitemap.xml";
+      preLoaderRoute: typeof SitemapDotxmlRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/signup": {
+      id: "/signup";
+      path: "/signup";
+      fullPath: "/signup";
+      preLoaderRoute: typeof SignupRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/shop": {
+      id: "/shop";
+      path: "/shop";
+      fullPath: "/shop";
+      preLoaderRoute: typeof ShopRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/reset-password": {
+      id: "/reset-password";
+      path: "/reset-password";
+      fullPath: "/reset-password";
+      preLoaderRoute: typeof ResetPasswordRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/login": {
+      id: "/login";
+      path: "/login";
+      fullPath: "/login";
+      preLoaderRoute: typeof LoginRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/legal": {
+      id: "/legal";
+      path: "/legal";
+      fullPath: "/legal";
+      preLoaderRoute: typeof LegalRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/faqs": {
+      id: "/faqs";
+      path: "/faqs";
+      fullPath: "/faqs";
+      preLoaderRoute: typeof FaqsRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/dashboard": {
+      id: "/dashboard";
+      path: "/dashboard";
+      fullPath: "/dashboard";
+      preLoaderRoute: typeof DashboardRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/contact": {
+      id: "/contact";
+      path: "/contact";
+      fullPath: "/contact";
+      preLoaderRoute: typeof ContactRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/checkout": {
+      id: "/checkout";
+      path: "/checkout";
+      fullPath: "/checkout";
+      preLoaderRoute: typeof CheckoutRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/cart": {
+      id: "/cart";
+      path: "/cart";
+      fullPath: "/cart";
+      preLoaderRoute: typeof CartRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/account": {
+      id: "/account";
+      path: "/account";
+      fullPath: "/account";
+      preLoaderRoute: typeof AccountRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/about": {
+      id: "/about";
+      path: "/about";
+      fullPath: "/about";
+      preLoaderRoute: typeof AboutRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/": {
+      id: "/";
+      path: "/";
+      fullPath: "/";
+      preLoaderRoute: typeof IndexRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/product/$id": {
+      id: "/product/$id";
+      path: "/product/$id";
+      fullPath: "/product/$id";
+      preLoaderRoute: typeof ProductIdRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/order/$id": {
+      id: "/order/$id";
+      path: "/order/$id";
+      fullPath: "/order/$id";
+      preLoaderRoute: typeof OrderIdRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
+    "/api/flutterwave-webhook": {
+      id: "/api/flutterwave-webhook";
+      path: "/api/flutterwave-webhook";
+      fullPath: "/api/flutterwave-webhook";
+      preLoaderRoute: typeof ApiFlutterwaveWebhookRouteImport;
+      parentRoute: typeof rootRouteImport;
+    };
   }
 }
 
@@ -393,17 +393,17 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFlutterwaveWebhookRoute: ApiFlutterwaveWebhookRoute,
   OrderIdRoute: OrderIdRoute,
   ProductIdRoute: ProductIdRoute,
-}
+};
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+  ._addFileTypes<FileRouteTypes>();
 
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
+import type { getRouter } from "./router.tsx";
+import type { startInstance } from "./start.ts";
+declare module "@tanstack/react-start" {
   interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+    ssr: true;
+    router: Awaited<ReturnType<typeof getRouter>>;
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>;
   }
 }

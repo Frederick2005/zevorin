@@ -46,6 +46,7 @@ function Dashboard() {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -99,6 +100,48 @@ function Dashboard() {
       </Shell>
     );
   }
+  const handleFiles = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    e.target.value = "";
+    if (files.length === 0) return;
+    setUploading(true);
+    const urls: string[] = [];
+    for (const file of files) {
+      if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+        toast.error(`${file.name}: use a JPG, PNG or WebP image`);
+        continue;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error(`${file.name} is larger than 5 MB`);
+        continue;
+      }
+      const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
+      const path = `${crypto.randomUUID()}.${ext}`;
+      const { error } = await supabase.storage
+        .from("product-images")
+        .upload(path, file, {
+          contentType: file.type,
+          cacheControl: "31536000",
+        });
+      if (error) {
+        console.error("Image upload failed:", error.message);
+        toast.error(`Could not upload ${file.name}`);
+        continue;
+      }
+      urls.push(
+        supabase.storage.from("product-images").getPublicUrl(path).data
+          .publicUrl,
+      );
+    }
+    setUploading(false);
+    if (urls.length > 0) {
+      setForm((f) => ({
+        ...f,
+        images: [f.images.trim(), ...urls].filter(Boolean).join("\n"),
+      }));
+      toast.success(`${urls.length} image(s) uploaded`);
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -264,6 +307,24 @@ function Dashboard() {
                 <option value="unisex">Unisex</option>
               </select>
             </div>
+            <label className="block">
+              <span className="text-eyebrow mb-1 block">
+                Upload images from your device
+              </span>
+              <input
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+                disabled={uploading}
+                onChange={handleFiles}
+                className="w-full text-sm file:mr-3 file:border file:border-border file:bg-background file:px-3 file:py-2"
+              />
+              {uploading && (
+                <span className="mt-1 block text-xs text-muted-foreground">
+                  Uploading…
+                </span>
+              )}
+            </label>
             <textarea
               placeholder="Image URLs (comma or newline separated)"
               rows={2}
@@ -305,7 +366,7 @@ function Dashboard() {
               </label>
             </div>
             <button
-              disabled={saving}
+              disabled={saving || uploading}
               className="w-full bg-foreground py-3 text-eyebrow text-background hover:bg-foreground/85 disabled:opacity-50"
             >
               {saving ? "Saving…" : editingId ? "Save changes" : "Add product"}
