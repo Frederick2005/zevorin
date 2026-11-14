@@ -54,8 +54,8 @@ function Contact() {
             </div>
             <div>
               <div className="text-eyebrow mb-1">Email</div>
-              <a href="mailto:atelier@zévorin.ug" className="hover:underline">
-                atelier@zévorin.ug
+              <a href="mailto:zevorin456@gmail.com" className="hover:underline">
+                zevorin456@gmail.com
               </a>
             </div>
             <div>
@@ -66,8 +66,8 @@ function Contact() {
             </div>
             <div>
               <div className="text-eyebrow mb-1">Phone</div>
-              <a href="tel:+256700000000" className="hover:underline">
-                +256 700 000 000
+              <a href="tel:+256706338141" className="hover:underline">
+                +256 706 338 141
               </a>
             </div>
             <div>
