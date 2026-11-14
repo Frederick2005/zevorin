@@ -50,18 +50,12 @@ function Contact() {
           <div className="mt-10 space-y-6 text-sm">
             <div>
               <div className="text-eyebrow mb-1">Studio</div>
-              <div>Plot 14 Kyaggwe Road, Nakasero, Kampala, Uganda</div>
+              <div> Kampala, Uganda</div>
             </div>
             <div>
               <div className="text-eyebrow mb-1">Email</div>
               <a href="mailto:zevorin456@gmail.com" className="hover:underline">
                 zevorin456@gmail.com
-              </a>
-            </div>
-            <div>
-              <div className="text-eyebrow mb-1">Press</div>
-              <a href="mailto:press@zévorin.ug" className="hover:underline">
-                press@zévorin.ug
               </a>
             </div>
             <div>
@@ -72,7 +66,7 @@ function Contact() {
             </div>
             <div>
               <div className="text-eyebrow mb-1">Hours</div>
-              <div>Tue – Sat · 10:00 – 18:00 EAT</div>
+              <div>Mon – Sat · 10:00 – 19:00 EAT</div>
             </div>
           </div>
         </div>

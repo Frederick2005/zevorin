@@ -73,6 +73,7 @@ function Index() {
             <img
               src="https://pin.it/R8DxggseY"
               alt="Editorial monochrome look"
+              
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute bottom-4 right-4 text-[10px] tracking-widest text-background mix-blend-difference">
