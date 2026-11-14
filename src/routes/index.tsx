@@ -71,7 +71,7 @@ function Index() {
           </div>
           <div className="relative h-[60vh] md:col-span-7 md:h-auto md:min-h-[640px]">
             <img
-              src="//src/components/image/82EA6441-4751-4F88-8954-827B14A63A91.png"
+              src="https://pin.it/R8DxggseY"
               alt="Editorial monochrome look"
               className="absolute inset-0 h-full w-full object-cover"
             />

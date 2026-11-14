@@ -90,7 +90,7 @@ function OrderStatusPage() {
   ) {
     title = "Payment cancelled";
     body =
-      "You cancelled the payment. Your bag is still saved, so you can try again whenever you're ready.";
+      "You cancelled the payment. Your cart is still saved, so you can try again whenever you're ready.";
     canRetry = true;
   } else if (status === "pending") {
     title = "Payment pending";
