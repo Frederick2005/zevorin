@@ -238,22 +238,22 @@ function About() {
             </Button>
           </div>
           <div className="mt-8 flex justify-center gap-4 text-muted-foreground/60">
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="https://www.instagram.com/zevorin.uganda?srtk=MWtyZ2RuenBybHI4bA%3D%3D&utm_source=qr" className="hover:text-foreground transition-colors">
               <Instagram className="h-6 w-6" />
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="https://www.tiktok.com/@micheal.zevorin?_r=1&_t=ZS-9BOhOlsdHrc" className="hover:text-foreground transition-colors">
               <Facebook className="h-6 w-6" />
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="https://x.com/zevorinofficial" className="hover:text-foreground transition-colors">
               <Twitter className="h-6 w-6" />
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <a href="https://www.youtube.com/@zevorin.uganda" className="hover:text-foreground transition-colors">
               <Youtube className="h-6 w-6" />
             </a>
           </div>
           <p className="mt-6 text-sm text-muted-foreground/60">
             <span className="font-semibold text-foreground">ZÉVORIN</span> –
-            Carry the Spirit. Wear the Culture. 🖤
+            Carry the Spirit. Wear the Culture.
           </p>
         </section>
       </div>
