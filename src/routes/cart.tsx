@@ -22,7 +22,7 @@ function CartPage() {
         {items.length === 0 ? (
           <div className="mt-16 border border-border py-24 text-center">
             <div className="text-eyebrow text-muted-foreground">
-              Your bag is empty
+              Your cart is empty
             </div>
             <Link
               to="/shop"

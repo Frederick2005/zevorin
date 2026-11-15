@@ -71,9 +71,8 @@ function Index() {
           </div>
           <div className="relative h-[60vh] md:col-span-7 md:h-auto md:min-h-[640px]">
             <img
-              src="https://pin.it/R8DxggseY"
+              src="/images/hero.webP"
               alt="Editorial monochrome look"
-              
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute bottom-4 right-4 text-[10px] tracking-widest text-background mix-blend-difference">
